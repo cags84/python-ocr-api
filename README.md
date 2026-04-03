@@ -9,6 +9,9 @@
 
 ## 📌 ¿De qué trata el proyecto?
 
+> **🌐 ¡Prueba el sistema en vivo!** 
+> Explora la demo pública corriendo en la nube: [https://python-ocr-api.onrender.com](https://python-ocr-api.onrender.com)
+
 Este proyecto nació con un solo objetivo en mente: **hacer que tus LLMs consuman menos tokens de "basura" visual y sean mucho más exactos.**
 
 Es una aplicación *full-stack* que toma tus documentos técnicos en PDF (los que a menudo están llenos de molestos diagramas rotos, pies de página o imágenes Base64 ilegibles para inteligencias artificiales de texto) y extrae su estructura hacia un **Markdown cristalino** mediante el motor PyMuPDF. Luego, entra nuestra capa interna destructiva que arrasa con anomalías de formato logrando ahorrar un porcentaje masivo del peso total sin perder semántica útil.
