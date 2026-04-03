@@ -54,10 +54,10 @@ body {
 .container {
     width: 100%;
     max-width: 900px;
-    padding: 3rem 1.5rem;
+    padding: 1.5rem 1rem; /* Mobile first base */
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     animation: fadeIn 0.8s ease-out;
 }
 
@@ -96,14 +96,14 @@ body {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem; /* Mobile first */
     font-weight: 700;
     letter-spacing: -0.02em;
 }
 
 .subtitle {
     color: var(--text-secondary);
-    font-size: 1.1rem;
+    font-size: 0.95rem; /* Mobile first */
 }
 
 /* Upload Section */
@@ -111,7 +111,7 @@ h1 {
     background: var(--card-bg);
     border: 2px dashed var(--border-color);
     border-radius: var(--radius-lg);
-    padding: 4rem 2rem;
+    padding: 2.5rem 1rem; /* Mobile first */
     text-align: center;
     cursor: pointer;
     transition: var(--transition);
@@ -135,9 +135,9 @@ h1 {
 }
 
 .upload-icon {
-    font-size: 4rem;
+    font-size: 2.5rem; /* Mobile first */
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     transition: transform 0.3s;
 }
 
@@ -146,7 +146,7 @@ h1 {
 }
 
 .upload-content h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* Mobile first */
     font-weight: 600;
 }
 
@@ -234,7 +234,14 @@ h1 {
 
 .result-actions {
     display: flex;
+    flex-wrap: wrap;
+    width: 100%; /* Mobile full width */
     gap: 0.75rem;
+}
+
+.result-actions .btn {
+    flex: 1; /* Ocupar todo el ancho en mobile */
+    justify-content: center;
 }
 
 .btn {
@@ -299,9 +306,8 @@ h1 {
 
 .stats-grid {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column; /* Mobile first: stack stats vertical */
+    gap: 0.75rem;
 }
 
 .stat-item {
@@ -451,4 +457,79 @@ pre {
 
 .app-footer a:hover {
     color: var(--primary-color);
+}
+
+/* =========================================
+   MOBILE FIRST RESPONSIVE BREAKPOINTS 
+   ========================================= */
+
+@media (min-width: 640px) {
+    /* Tablet layout */
+    .container {
+        padding: 2.5rem 1.5rem;
+        gap: 1.8rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1.05rem;
+    }
+
+    .upload-section {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .upload-icon {
+        font-size: 3.5rem;
+    }
+
+    .stats-grid {
+        flex-direction: row; /* Volver a cuadrícula en tablet */
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .stat-item {
+        min-width: calc(33.333% - 1rem); /* 3 columnas */
+    }
+
+    .result-actions {
+        width: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Desktop layout */
+    .container {
+        padding: 3rem 1.5rem;
+        gap: 2rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .upload-section {
+        padding: 5rem 2rem;
+    }
+
+    .upload-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    .upload-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .result-actions .btn {
+        flex: none; /* Botones a tamaño normal en desktop */
+    }
 }
