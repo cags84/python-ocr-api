@@ -73,10 +73,11 @@ body {
 
 .logo-container {
     display: flex;
+    flex-direction: column; /* Mobile first: logo arriba del título */
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .logo-icon {
@@ -468,6 +469,11 @@ pre {
     .container {
         padding: 2.5rem 1.5rem;
         gap: 1.8rem;
+    }
+
+    .logo-container {
+        flex-direction: row; /* Tablet/Desktop: Restaurar lado a lado */
+        gap: 1rem;
     }
 
     h1 {
