@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extractor OCR para LLMs | Antigravity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Librería de Markdown a HTML (para preview) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="page-background"></div>
+    
+    <main class="container">
+        <header class="app-header">
+            <div class="logo-container">
+                <div class="logo-icon"><i class="fa-solid fa-file-pdf"></i><i class="fa-solid fa-arrow-right-arrow-left arrow-icon"></i><i class="fa-solid fa-robot"></i></div>
+                <h1>Procesador OCR para LLMs</h1>
+            </div>
+            <p class="subtitle">Sube un documento PDF técnico y extráelo a Markdown estructurado.</p>
+        </header>
+
+        <section class="upload-section" id="upload-zone">
+            <div class="upload-content">
+                <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                <h2>Arrastra tu PDF aquí</h2>
+                <p>O haz clic para seleccionar un archivo</p>
+                <input type="file" id="file-input" accept="application/pdf" hidden>
+            </div>
+            <div class="upload-progress hidden" id="upload-progress">
+                <h3 id="progress-text">Procesando... 0%</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <p id="progress-desc">Analizando documento, extrayendo estructura y limpiando ruido...</p>
+                <p class="small-text">Este paso garantiza la calidad del texto para el LLM.</p>
+            </div>
+        </section>
+
+        <section class="result-section hidden" id="result-section">
+            <div class="result-header">
+                <h2><i class="fa-solid fa-check-circle"></i> Extracción Completada</h2>
+                <div class="result-actions">
+                    <button id="copy-btn" class="btn btn-secondary"><i class="fa-regular fa-copy"></i> Copiar MD</button>
+                    <button id="download-btn" class="btn btn-primary"><i class="fa-solid fa-download"></i> Descargar</button>
+                    <button id="new-btn" class="btn btn-outline"><i class="fa-solid fa-rotate-left"></i> Nuevo</button>
+                </div>
+            </div>
+
+            <div class="stats-card hidden" id="stats-card">
+                <div class="stats-header"><i class="fa-solid fa-bolt"></i> Optimización de Contexto</div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span id="stat-raw" class="stat-value">0</span>
+                        <span class="stat-label">Caracteres Raw</span>
+                    </div>
+                    <div class="stat-item">
+                        <span id="stat-opt" class="stat-value">0</span>
+                        <span class="stat-label">Optimizados</span>
+                    </div>
+                    <div class="stat-item highlight">
+                        <span id="stat-saved" class="stat-value">0%</span>
+                        <span class="stat-label">Reducción (Ahorro tokens)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-toggle">
+                <button class="toggle-btn active" data-view="markdown">Markdown (Crudo)</button>
+                <button class="toggle-btn" data-view="preview">Vista Previa</button>
+            </div>
+
+            <div class="result-content">
+                <div id="markdown-view" class="view-panel active">
+                    <pre><code id="markdown-output"></code></pre>
+                </div>
+                <div id="preview-view" class="view-panel markdown-body">
+                    <!-- HTML Renderizado irá aquí -->
+                </div>
+            </div>
+        </section>
+
+        <footer class="app-footer">
+            <p>Desarrollado por <strong>Carlos Guzmán</strong></p>
+            <a href="https://github.com/cags84/python-ocr-api" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i> github.com/cags84/python-ocr-api
+            </a>
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

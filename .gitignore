@@ -1,0 +1,37 @@
+# Entornos virtuales
+venv/
+env/
+.env
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Carpetas de datos y archivos generados dinámicamente
+backend/uploads/
+*.pdf
+*.md
+*.json
+
+# Logs
+*.log
+
+# Entornos IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Cobertura y testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Archivos de caché del SO
+.DS_Store
+*.swp

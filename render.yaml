@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: python-ocr-api
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn backend.main:app -k uvicorn.workers.UvicornWorker -w 4 -b 0.0.0.0:$PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13.0"
+      - key: ENVIRONMENT
+        value: "production"
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: RECAPTCHA_SCORE_THRESHOLD
+        value: "0.5"
+      # Coloca tu CLAVE DE SITIO en "value" porque es pública, pero la Secreta NO la pongas aquí si el repo es público
+      - key: RECAPTCHA_SITE_KEY
+        value: "6LcWWKMsAAAAALvv6UUlgWW3pFlSDJq8BGrnZeF-"
+      - key: RECAPTCHA_SECRET_KEY
+        sync: false
