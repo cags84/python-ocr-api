@@ -16,7 +16,6 @@ __pycache__/
 # Carpetas de datos y archivos generados dinámicamente
 backend/uploads/
 *.pdf
-*.md
 *.json
 
 # Logs
